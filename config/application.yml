@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+logging:
+  config: "file:./config/log4j2.yml"
+
+---
+
+spring:
+  profiles: dev
+
+---
+
+spring:
+  profiles: prod

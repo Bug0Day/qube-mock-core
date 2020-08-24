@@ -1,0 +1,30 @@
+Configuration:
+  name: default
+  status: WARN
+  monitorInterval: 30
+
+  Properties:
+    Property:
+      name: LOGPATTERN
+      value: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p --- [%15.15t] %-60.60c{10} : %m%n%ex"
+
+  Appenders:
+    Console:
+      PatternLayout:
+        pattern: "${LOGPATTERN}"
+      name: ConsoleAppender
+      target: SYSTEM_OUT
+      follow: true
+
+  Loggers:
+    Root:
+      AppenderRef:
+        ref: ConsoleAppender
+      level: INFO
+
+    Logger:
+      AppenderRef:
+        ref: ConsoleAppender
+      name: "org.qube.mock.core"
+      level: DEBUG
+      additivity: false
